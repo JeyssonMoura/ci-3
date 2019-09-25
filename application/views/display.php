@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            echo "Informação passda na URL: ".$dado.", ".$dado_2;
+        echo "Display";
         ?>
     </body>
 </html>
