@@ -22,26 +22,37 @@
 
         <!-- Core plugin JavaScript-->
         <script src="<?php echo base_url('bootstrap/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
+
+        <style>
+            .bg-teste {
+                background-color: #4e73df;
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
+                background-image: linear-gradient(180deg,#000000 10%,#f51313 100%);
+                background-size: cover;
+            }
+            .btn-primary {
+                color: #fff;
+                background-color: #ca0f0f;
+                border-color: #4e73df;
+            }
+        </style>
+
     </head>
     <!-- Modal grande -->
-
-   
-  
-
     <body id="page-top">
 
         <!-- Page Wrapper -->
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul class="navbar-nav bg-teste sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                     <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
+                        <img class="rounded-circle" src="https://http2.mlstatic.com/mascara-jason-voorhees-original-hoquei-ver-detalhes-no-video-D_NQ_NP_861722-MLB29130145680_012019-F.jpg" height="50" width="50">
                     </div>
-                    <div class="sidebar-brand-text mx-3">Scholl</div>
+                    <div class="sidebar-brand-text mx-3">UJEYZU</div>
                 </a>
 
                 <!-- Divider -->
@@ -59,7 +70,7 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    
+
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->

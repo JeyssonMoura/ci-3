@@ -8,48 +8,53 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class=" form-row">
-                    <div class="col-12 col-sm-4 col-md-9">
-                        <label>Descriçao</label>
-                        <input type="text" name="esc_descricao" id="esc_descricao" class="form-control" required>
-                    </div>
-                    <div class="col-12 col-sm-3 col-md-3">
-                        <label>Data</label>
-                        <input type="text" name="esc_data" id="esc_data" class="form-control" required>
-                    </div>
+                <div class="alert alert-success" id="sucesso" role="alert">
+                    Cadastrado com sucesso!
                 </div>
-                <div class="form-row">
-                    <div class="col-12 col-sm-3 col-md-3">
-                        <label>CEP</label>
-                        <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                <form id="formCadastrarEscola" action="javascript:func()">
+                    <div class=" form-row">
+                        <div class="col-12 col-sm-4 col-md-9">
+                            <label>Descriçao</label>
+                            <input type="text" name="esc_descricao" id="esc_descricao" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-sm-3 col-md-3">
+                            <label>Data</label>
+                            <input type="text" name="esc_data" id="esc_data" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-8">
-                        <label>Cidade</label>
-                        <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                    <div class="form-row">
+                        <div class="col-12 col-sm-3 col-md-3">
+                            <label>CEP</label>
+                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-8">
+                            <label>Cidade</label>
+                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-1">
+                            <label>UF</label>
+                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-1">
-                        <label>UF</label>
-                        <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-12 col-sm-5 col-md-5">
-                        <label>Rua</label>
-                        <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
-                    </div>
-                    <div class="col-12 col-sm-4 col-md-4">
-                        <label>Bairro</label>
-                        <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
-                    </div>
-                    <div class="col-12 col-sm-3 col-md-3">
-                        <label>Número</label>
-                        <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
-                    </div>
-                </div><br>
-                <div class="modal-footer">
+                    <div class="form-row">
+                        <div class="col-12 col-sm-5 col-md-5">
+                            <label>Rua</label>
+                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-sm-4 col-md-4">
+                            <label>Bairro</label>
+                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-sm-3 col-md-3">
+                            <label>Número</label>
+                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                        </div>
+                    </div><br>
+                    <div class="modal-footer">
                         <button type="submit" class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg">Salvar</button>
                         <button type="button" class="btn btn-danger " data-toggle="modal" data-target=".bd-example-modal-lg">Fechar</button>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -105,3 +110,18 @@
 
 
 </div>
+
+<script>
+    $('#formCadastrarEscola').submit(function(event){
+        $.post('Controller_escola/addEscola', $('#formCadastrarEscola').serialize(), function (resposta){
+            if(resposta === 'true'){
+                
+            } else {
+                
+            }
+        }).fail(function (){
+            $('#sucesso').html('Erro ao salvar os dados');
+            $('#sucesso').attr('class', 'alert alert-danger');
+        });
+    });
+</script>
