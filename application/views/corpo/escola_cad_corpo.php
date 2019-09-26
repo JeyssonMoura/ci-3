@@ -115,9 +115,11 @@
     $('#formCadastrarEscola').submit(function(event){
         $.post('Controller_escola/addEscola', $('#formCadastrarEscola').serialize(), function (resposta){
             if(resposta === 'true'){
-                
+                $('#sucesso').html('Dados cadastrados com sucesso!');
+                $('#sucesso').attr('class', 'alert alert-success');
             } else {
-                
+                $('#sucesso').html('Erro ao salvar os dados');
+                $('#sucesso').attr('class', 'alert alert-danger');
             }
         }).fail(function (){
             $('#sucesso').html('Erro ao salvar os dados');
