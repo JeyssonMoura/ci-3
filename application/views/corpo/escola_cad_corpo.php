@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="modalCadastrarEscola" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="alert alert-success" id="sucesso" role="alert">
+                <div class="alert alert-success d-none" id="sucesso" role="alert">
                     Cadastrado com sucesso!
                 </div>
                 <form id="formCadastrarEscola" action="javascript:func()">
@@ -51,7 +51,7 @@
                         </div>
                     </div><br>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg">Salvar</button>
+                        <button type="submit" class="btn btn-primary ">Salvar</button>
                         <button type="button" class="btn btn-danger " data-toggle="modal" data-target=".bd-example-modal-lg">Fechar</button>
                     </div>
                 </form>
@@ -121,9 +121,12 @@
                 $('#sucesso').html('Erro ao salvar os dados');
                 $('#sucesso').attr('class', 'alert alert-danger');
             }
-        }).fail(function (){
+        }).fail(function (xhyr, textStatus, errorThrown){
             $('#sucesso').html('Erro ao salvar os dados');
             $('#sucesso').attr('class', 'alert alert-danger');
         });
+    });
+    $('#modalCadastrarEscola').on('hidden.bs.model', function(){
+       $('#sucesso').attr('class', 'alert alert-success d-none');
     });
 </script>
