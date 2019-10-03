@@ -11,7 +11,7 @@
                 <div class="alert alert-success d-none" id="sucesso" role="alert">
                     Cadastrado com sucesso!
                 </div>
-                <form id="formCadastrarEscola" action="javascript:func()">
+                <form method="POST" id="formCadastrarEscola" action="javascript:func()">
                     <div class=" form-row">
                         <div class="col-12 col-sm-4 col-md-9">
                             <label>Descriçao</label>
@@ -29,25 +29,25 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-8">
                             <label>Cidade</label>
-                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                            <input type="text" name="esc_cidade" id="esc_cidade" class="form-control" required>
                         </div>
                         <div class="col-12 col-sm-6 col-md-1">
                             <label>UF</label>
-                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                            <input type="text" name="esc_uf" id="esc_uf" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-12 col-sm-5 col-md-5">
                             <label>Rua</label>
-                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                            <input type="text" name="esc_rua" id="esc_rua" class="form-control" required>
                         </div>
                         <div class="col-12 col-sm-4 col-md-4">
                             <label>Bairro</label>
-                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                            <input type="text" name="esc_bairro" id="esc_bairro" class="form-control" required>
                         </div>
                         <div class="col-12 col-sm-3 col-md-3">
                             <label>Número</label>
-                            <input type="text" name="esc_cep" id="esc_cep" class="form-control" required>
+                            <input type="text" name="esc_numero" id="esc_numero" class="form-control" required>
                         </div>
                     </div><br>
                     <div class="modal-footer">
@@ -114,15 +114,15 @@
 <script>
     $('#formCadastrarEscola').submit(function(event){
         $.post('Controller_escola/addEscola', $('#formCadastrarEscola').serialize(), function (resposta){
-            if(resposta === 'true'){
+            if(resposta === "true"){
                 $('#sucesso').html('Dados cadastrados com sucesso!');
                 $('#sucesso').attr('class', 'alert alert-success');
             } else {
-                $('#sucesso').html('Erro ao salvar os dados');
+                $('#sucesso').html('Erro ao salvar os dados 1');
                 $('#sucesso').attr('class', 'alert alert-danger');
             }
-        }).fail(function (xhyr, textStatus, errorThrown){
-            $('#sucesso').html('Erro ao salvar os dados');
+        }).fail(function (){
+            $('#sucesso').html('Erro ao salvar os dados 2');
             $('#sucesso').attr('class', 'alert alert-danger');
         });
     });
